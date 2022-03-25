@@ -18,7 +18,7 @@ export function AddFoodForm({name, calories, image, servings, addFood, setName, 
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="addform">
             <Divider>Add Food Entry</Divider>
             <label>Name</label>
             <Input value={name} type="text" onChange={(e) => setName(e.target.value)}/>

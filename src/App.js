@@ -12,7 +12,7 @@ function App() {
   const [servings, setServings] = useState("");
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterFood, setFilterFood] = useState(foods_db);
+  const [filterFood, setFilterFood] = useState(foods);
 
   const [show, setShow] = useState(false);
 
@@ -24,7 +24,7 @@ function App() {
   const searchFood = (searchTerm) => {
     const foodFiltered = !searchTerm
       ? foods
-      : filterFood.filter((food) =>
+      : foods.filter((food) =>
           food.name
             .toString()
             .toLowerCase()
@@ -79,23 +79,10 @@ function App() {
               <b>∅</b>
             </p>
           </div>
-        ) : searchTerm.length > 0 ? (
+        ) : (
           filterFood.map((food, index) => (
             <FoodBox
               key={index}
-              food={{
-                name: food.name,
-                calories: food.calories,
-                image: food.image,
-                servings: food.servings
-              }}
-              handleDelete={handleDelete}
-            />
-          ))
-        ) : (
-          foods.map((food) => (
-            <FoodBox
-              key={food.name}
               food={{
                 name: food.name,
                 calories: food.calories,
